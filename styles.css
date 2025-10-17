@@ -8,6 +8,8 @@ p{
 img{
     float: right;
     width: 300px;
+    max-width: 100%;
+    height: auto;
     border-radius: 15px;
     margin-left: 20px;
 
@@ -24,7 +26,8 @@ h3{
     
 body{
     background-color: #b8e3e9;
-    padding:none;
+    padding:0;
+    overflow-x:hidden;
 }
 
 #container{
