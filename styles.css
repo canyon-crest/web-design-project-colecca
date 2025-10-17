@@ -99,7 +99,11 @@ a:active{
 }
 
 #sidebar h3{
-
+    border: none;
+    text-align: center;
+    padding: 5px;
+    margin: 0 auto;
+    margin-top:15px;
 }
 
 @media (max-width:1200px) {
