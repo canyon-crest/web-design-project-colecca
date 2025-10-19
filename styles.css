@@ -15,7 +15,7 @@ img{
 
 }
 h3{
-    color: rgb(8, 9, 8);
+    color: rgb(20, 21, 20);
     border-left: 20px double groove;
     padding-left: 20px;
     border-radius: 20px;
@@ -53,8 +53,9 @@ h1{
 h2{
     font-size: 1.3em;
     text-align: center;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family:Georgia, 'Times New Roman', Times, sans-serif;
     font-style: italic;
+
 
 }
 /* PSEUDO SELECTORS */
@@ -145,3 +146,9 @@ a:active{
         width: 100%;
     }
 }
+:root{--bg: #b8e3e9;
+    --card: #f7fafb;
+    --accent: #0b8ce1;
+    --muted: #f4f2f2;
+    --max-w: 980px;
+    --gap: 20px;}
