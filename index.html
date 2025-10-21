@@ -8,6 +8,7 @@
   </head>
   
   <body>
+  <div id="scroll-indicator"><div class="progress" aria-hidden="true"></div></div>
   <div id="container">  
   <h1>Cole</h1>
 
@@ -48,13 +49,41 @@ I want to continue doing this show when I come back from college, but am looking
 If you’re interested in going on the show, let me know, and we’ll record a banger episode.  </p>
 
 
-<h3>Spanish</h3>
-<img src="images/Screenshot 2025-10-14 1.37.26 PM.png" id="pic3"> <p> No recuerdo la primera vez que escuché una canción de <a href="https://www.youtube.com/watch?v=Cr8K88UcO0s" target="_blank">Bad Bunny</a>, 
+<section id="spanish">
+  <h3>Spanish</h3>
+  <img src="images/Screenshot 2025-10-14 1.37.26 PM.png" id="pic3"> <p> No recuerdo la primera vez que escuché una canción de <a href="https://www.youtube.com/watch?v=Cr8K88UcO0s" target="_blank">Bad Bunny</a>, 
   pero desde entonces se ha convertido en uno de mis artistas favoritos. Encontré mi pasión por la música española cuando tomé una clase 
   de español en la escuela secundaria. Era una canción de Sebastián Yatra, y <span class="highlight">eso desarrolló mi interés en el mundo latino y los ritmos que lleva.</span> Ahora, quiero tomar clases de español en la universidad, 
   donde pueda obtener un nivel de español más alto. Pero, por ahora, estoy enfocándome en manteniendo y creciendo el español que yo sé ahora, a través de la música de varios artistas como Quevedo y Jhayco. Siempre estoy 
   dispuesto a encontrar nuevas oportunidades de aprender, especialmente a través de viajar a paises hispanohablantes. </p>
+</section>
 </div>
+
+<script>
+  (function(){
+    const progress = document.querySelector('#scroll-indicator .progress');
+    if (!progress) return;
+
+    const update = () => {
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const height = doc.scrollHeight - doc.clientHeight;
+      const pct = height > 0 ? (scrollTop / height) * 100 : 0;
+      progress.style.width = pct + '%';
+    };
+
+    let ticking = false;
+    document.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => { update(); ticking = false; });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
 
   </body>
 </html>
