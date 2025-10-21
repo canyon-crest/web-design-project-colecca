@@ -9,6 +9,8 @@
   
   <body>
   <div id="scroll-indicator"><div class="progress" aria-hidden="true"></div></div>
+  <div id="scroll-shadow-top" aria-hidden="true"></div>
+  <div id="scroll-shadow-bottom" aria-hidden="true"></div>
   <div id="container">  
   <h1>Cole</h1>
 
@@ -62,6 +64,8 @@ If you’re interested in going on the show, let me know, and we’ll record a b
 <script>
   (function(){
     const progress = document.querySelector('#scroll-indicator .progress');
+    const topShadow = document.getElementById('scroll-shadow-top');
+    const bottomShadow = document.getElementById('scroll-shadow-bottom');
     if (!progress) return;
 
     const update = () => {
@@ -70,6 +74,15 @@ If you’re interested in going on the show, let me know, and we’ll record a b
       const height = doc.scrollHeight - doc.clientHeight;
       const pct = height > 0 ? (scrollTop / height) * 100 : 0;
       progress.style.width = pct + '%';
+
+      // show top shadow when scrolled down a little
+      if (topShadow) topShadow.style.opacity = scrollTop > 6 ? '1' : '0';
+
+      // show bottom shadow when not at the bottom
+      if (bottomShadow) {
+        const atBottom = height - scrollTop <= 6;
+        bottomShadow.style.opacity = atBottom ? '0' : '1';
+      }
     };
 
     let ticking = false;
