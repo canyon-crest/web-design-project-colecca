@@ -106,6 +106,32 @@ h2{
 
 
 }
+
+/* Entrance animations: h1 drops from above, h2 slides in from left */
+@keyframes dropIn {
+    from { transform: translateY(-40px); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-40px); opacity: 0; }
+    to   { transform: translateX(0);     opacity: 1; }
+}
+
+/* Apply animations with a slight stagger so they feel like raindrops */
+h1 {
+    animation: dropIn 1200ms cubic-bezier(.2,.9,.2,1) both;
+}
+
+h2 {
+    animation: slideInLeft 1200ms cubic-bezier(.2,.9,.2,1) both;
+    animation-delay: 240ms; /* increased stagger */
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    h1, h2 { animation: none !important; transition: none !important; }
+}
 /* PSEUDO SELECTORS */
 a:link{
     color: rgb(106, 106, 224)
